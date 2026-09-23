@@ -152,7 +152,7 @@ ul { list-style: none; }
   border-bottom: 1px solid rgba(240, 224, 208, 0.08);
 }
 
-.nav-mobile a:last-child { border-bottom: 0; color: var(--navy); background: var(--cream); text-align: center; margin-top: 0.6rem; border-radius: 999px; padding: 0.75rem; }
+/* original last-child CTA removed — see .nav-mobile-cta */
 
 /* ——— Hero ——— */
 .hero {
@@ -601,4 +601,155 @@ h2 {
   .beats { grid-template-columns: repeat(4, 1fr); }
   .shot { min-height: 240px; }
   section { padding: 5rem 0; }
+}
+
+/* ——— Nav mobile CTA (class-based; only on trip pages with Book) ——— */
+.nav-mobile a.nav-mobile-cta {
+  border-bottom: 0;
+  color: var(--navy);
+  background: var(--cream);
+  text-align: center;
+  margin-top: 0.6rem;
+  border-radius: 999px;
+  padding: 0.75rem;
+}
+
+/* ——— Light-bg buttons ——— */
+.btn-dark {
+  background: var(--navy);
+  color: var(--cream);
+}
+.btn-outline-dark {
+  background: transparent;
+  color: var(--navy);
+  border-color: rgba(16, 48, 64, 0.35);
+}
+.btn-outline-dark:hover { border-color: var(--navy); }
+
+/* ——— Home story ——— */
+.story { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.story-grid {
+  display: grid;
+  gap: 2rem;
+}
+.story-aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.5rem 1.4rem;
+  background: var(--navy);
+  color: var(--cream);
+}
+.story-tag {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+/* ——— Page hero (trips index) ——— */
+.page-hero {
+  padding: 3.25rem 0 1.5rem;
+  background: var(--navy2);
+  color: var(--cream);
+}
+.page-hero .eyebrow { color: rgba(240, 224, 208, 0.65); }
+.page-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  letter-spacing: 0.08em;
+  line-height: 0.95;
+}
+.page-hero .rule { background: var(--cream); opacity: 0.35; }
+.page-lede {
+  margin-top: 1rem;
+  max-width: 34rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: rgba(240, 224, 208, 0.85);
+}
+
+/* ——— Trip cards ——— */
+.featured { padding-top: 4rem; }
+.trips-list { padding: 2.5rem 0 4rem; }
+.trips-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+.trip-card {
+  display: grid;
+  background: var(--card);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.2s;
+  color: inherit;
+}
+a.trip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.trip-card-featured {
+  box-shadow: 0 8px 28px rgba(10, 28, 40, 0.1);
+}
+.trip-card-media {
+  min-height: 200px;
+  background: var(--navy2) center / cover no-repeat;
+}
+.trip-card-media-muted {
+  background: linear-gradient(135deg, #0a1c28 0%, #1a3a4a 50%, #2a4a5a 100%);
+  opacity: 0.9;
+  position: relative;
+}
+.trip-card-media-muted::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('assets/logo_watermark.png') center / 45% no-repeat;
+  opacity: 0.18;
+}
+.trip-card-body { padding: 1.35rem 1.4rem 1.5rem; }
+.trip-card-body h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.65rem;
+  letter-spacing: 0.08em;
+  line-height: 1.05;
+  margin-bottom: 0.35rem;
+}
+.trip-meta {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.65rem;
+}
+.trip-blurb {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 0.95rem;
+}
+.trip-link {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  color: var(--navy);
+}
+.muted-link { color: var(--muted); }
+.trip-card-placeholder {
+  opacity: 0.88;
+  border-style: dashed;
+}
+
+@media (min-width: 720px) {
+  .story-grid { grid-template-columns: 1.4fr 0.85fr; align-items: stretch; }
+  .trips-grid { grid-template-columns: 1fr 1fr; }
+  .trip-card { grid-template-rows: auto 1fr; }
+  .trip-card-featured {
+    grid-template-columns: 1.1fr 1fr;
+  }
+  .trip-card-featured .trip-card-media { min-height: 100%; }
+  .page-hero { padding: 4rem 0 2rem; }
 }
