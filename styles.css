@@ -173,6 +173,21 @@ ul { list-style: none; }
     linear-gradient(90deg, rgba(10, 28, 40, 0.55) 0%, transparent 60%);
 }
 
+/* Keep home hero type in the left half — hikers live on the right of the crop */
+.hero-home .hero-content {
+  max-width: min(100% - 2rem, 34rem);
+  margin-right: auto;
+  margin-left: max(1rem, calc((100% - var(--max)) / 2));
+  width: auto;
+}
+.hero-home h1 { max-width: 11ch; }
+.hero-home .hero-lede { max-width: 28rem; }
+.hero-home {
+  background-position: right center;
+}
+
+
+
 .hero::before {
   content: '';
   position: absolute;
